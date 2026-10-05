@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { FABRICS, PRODUCTS, WHATSAPP_MAIN, waLink } from "../data/site";
+import { FABRICS, PRODUCTS, WHATSAPP_MAIN, waLink, DEMO_HIDE_COMMERCE } from "../data/site";
 import { useShop } from "../store/ShopContext";
 import SofaPreview from "../components/SofaPreview";
 
@@ -82,7 +82,7 @@ export default function Customize(){
         </div>
         <div className="price" style={{marginTop:12}}><b style={{fontSize:28}}>₹{price.toLocaleString("en-IN")}*</b><span style={{fontSize:13,color:"#667085"}}>making in 10–14 days • {base.name} base</span></div>
         <div style={{display:"flex",gap:10,marginTop:10,flexWrap:"wrap"}}>
-          <button className="btn btn-orange" onClick={()=>addCart({...base,name:`Custom ${shape} (${fabric.name})`,buy:price}, "buy",1,{color:fabric.name,...dims})}>Add custom to cart</button>
+          {!DEMO_HIDE_COMMERCE && <button className="btn btn-orange" onClick={()=>addCart({...base,name:`Custom ${shape} (${fabric.name})`,buy:price}, "buy",1,{color:fabric.name,...dims})}>Add custom to cart</button>}
           <button className="btn btn-ghost" onClick={()=>{setDims({...base.dims});setFabric(FABRICS[0]);setShape("3-Seater");}}>Reset</button>
         </div>
         <div className="note" style={{marginTop:10}}>How WhatsApp ordering works: tap <b>Download design card</b> → tap <b>Send design on WhatsApp</b> → attach the downloaded image in chat → we confirm measurement visit.</div>

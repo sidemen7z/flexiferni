@@ -1,8 +1,8 @@
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { Search, Heart, ShoppingBag, ArrowRight, ArrowUpRight, X, Phone, Home, LayoutGrid } from "lucide-react";
+import { Search, Heart, ShoppingBag, ArrowRight, ArrowUpRight, X, Phone, Home, LayoutGrid, Image as ImageIcon } from "lucide-react";
 import { useShop } from "../store/ShopContext";
-import { ADDRESS, OFFER, waCheckout } from "../data/site";
+import { ADDRESS, OFFER, waCheckout, DEMO_HIDE_COMMERCE } from "../data/site";
 
 export function Topbar(){
   const { area } = useShop();
@@ -42,8 +42,8 @@ export function Navbar(){
     </div>
     <div className="nav-actions">
       <form className="searchbar" onSubmit={go}><Search size={16} /><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search furniture..." aria-label="Search" /></form>
-      <Link className="icon-btn" to="/wishlist" aria-label="Wishlist"><Heart size={18} />{wish.length>0&&<span className="count">{wish.length}</span>}</Link>
-      <Link className="icon-btn" to="/cart" aria-label="Cart"><ShoppingBag size={18} />{cartN>0&&<span className="count">{cartN}</span>}</Link>
+      {!DEMO_HIDE_COMMERCE && <Link className="icon-btn" to="/wishlist" aria-label="Wishlist"><Heart size={18} />{wish.length>0&&<span className="count">{wish.length}</span>}</Link>}
+      {!DEMO_HIDE_COMMERCE && <Link className="icon-btn" to="/cart" aria-label="Cart"><ShoppingBag size={18} />{cartN>0&&<span className="count">{cartN}</span>}</Link>}
       <button className={"hamb"+(open?" open":"")} onClick={()=>setOpen(!open)} aria-label="Menu"><span/><span/><span/></button>
     </div>
   </div></nav>
@@ -69,7 +69,7 @@ export function Footer(){
       <p style={{color:"#8FA0C4",fontSize:13}}>Buy today, sell back tomorrow — up to 50% value back, subject to terms.</p>
     </div>
     <div><h4>SHOP</h4><p><Link to="/buy">Buy furniture</Link><br/><Link to="/rent">Rent furniture</Link><br/><Link to="/sell">Sell / 50% buyback</Link><br/><Link to="/repair">Repair service</Link><br/><Link to="/customize">Custom-made</Link><br/><Link to="/categories">All categories</Link><br/><Link to="/gallery">Photo gallery</Link></p></div>
-    <div><h4>COMPANY</h4><p><Link to="/about">About + Factory</Link><br/><Link to="/contact">Contact</Link><br/><Link to="/room-view">View in your room</Link><br/><Link to="/cart">Cart & checkout</Link></p></div>
+    <div><h4>COMPANY</h4><p><Link to="/about">About + Factory</Link><br/><Link to="/contact">Contact</Link><br/><Link to="/room-view">View in your room</Link><br/>{!DEMO_HIDE_COMMERCE && <><Link to="/cart">Cart & checkout</Link><br/></>}</p></div>
     <div><h4>OUR STORE</h4><p><b style={{color:"#fff"}}>FlexiFurni</b><br/>{ADDRESS}<br/><br/>Irfan Shah<br/><a href="https://wa.me/919975075425">WhatsApp: +91 99750 75425</a><br/><a href="https://wa.me/919822871537">WhatsApp: +91 98228 71537</a><br/><a href="https://wa.me/917709048937">WhatsApp: +91 77090 48937</a><br/><span style={{color:"#8FA0C4"}}>Instagram: @shah_enterprises_nibm</span></p></div>
   </div>
   <div style={{borderTop:"1px solid #22345F"}}><div className="container" style={{display:"flex",justifyContent:"space-between",padding:"14px 0",fontSize:13,color:"#8FA0C4",flexWrap:"wrap",gap:8}}><span>© 2026 FlexiFurni, Pune.</span><span>Rent · Buy · Sell · Repair · Custom</span></div></div></footer>;
@@ -119,8 +119,13 @@ export function BottomNav(){
   return <nav className="bottomnav">
     <NavLink to="/" end className={({isActive})=>isActive?"on":""}><Home size={21} /><small>Home</small></NavLink>
     <NavLink to="/categories" className={({isActive})=>isActive?"on":""}><LayoutGrid size={21} /><small>Categories</small></NavLink>
-    <NavLink to="/wishlist" className={({isActive})=>isActive?"on":""}><span className="nbadge"><Heart size={21} />{wish.length>0&&<i>{wish.length}</i>}</span><small>Wishlist</small></NavLink>
-    <NavLink to="/cart" className={({isActive})=>isActive?"on":""}><span className="nbadge"><ShoppingBag size={21} />{n>0&&<i>{n}</i>}</span><small>Cart</small></NavLink>
+    {DEMO_HIDE_COMMERCE ? <>
+      <NavLink to="/gallery" className={({isActive})=>isActive?"on":""}><ImageIcon size={21} /><small>Gallery</small></NavLink>
+      <NavLink to="/contact" className={({isActive})=>isActive?"on":""}><Phone size={21} /><small>Contact</small></NavLink>
+    </> : <>
+      <NavLink to="/wishlist" className={({isActive})=>isActive?"on":""}><span className="nbadge"><Heart size={21} />{wish.length>0&&<i>{wish.length}</i>}</span><small>Wishlist</small></NavLink>
+      <NavLink to="/cart" className={({isActive})=>isActive?"on":""}><span className="nbadge"><ShoppingBag size={21} />{n>0&&<i>{n}</i>}</span><small>Cart</small></NavLink>
+    </>}
   </nav>;
 }
 
@@ -134,17 +139,19 @@ export function ProductCard({ p, mode }){
     <div className="ph">
       <Link to={`/product/${p.id}`}><img src={p.img} alt={p.name} loading="lazy" /></Link>
       <span className="ptype">{p.type==="custom"?"CUSTOM-MADE":isRent?"RENT":"BUY"}</span>
-      <button className={"wish"+(wished?" on":"")} onClick={()=>toggleWish(p.id)} aria-label="Wishlist">
+      {!DEMO_HIDE_COMMERCE && <button className={"wish"+(wished?" on":"")} onClick={()=>toggleWish(p.id)} aria-label="Wishlist">
         <Heart size={17} fill={wished?"currentColor":"none"} />
-      </button>
+      </button>}
     </div>
     <div className="bd">
       <h4><Link to={`/product/${p.id}`}>{p.name}</Link></h4>
       <div className="meta">{p.rating} / 5 · {p.reviews} reviews</div>
       <div className="price"><b>{isRent?`₹${price.toLocaleString("en-IN")} / month`:`₹${price.toLocaleString("en-IN")}`}</b>{p.mrp&&!isRent&&<s>₹{p.mrp.toLocaleString("en-IN")}</s>}</div>
       <div className="row">
-        <button className="btn btn-navy btn-sm" style={{flex:1}} onClick={()=>addCart(p,isRent?"rent":"buy")}>{isRent?"Rent now":"Add to cart"}</button>
-        <Link className="btn btn-ghost btn-sm" to={`/product/${p.id}`} aria-label="View details"><ArrowRight size={16} /></Link>
+        {DEMO_HIDE_COMMERCE
+          ? <Link className="btn btn-navy btn-sm" style={{flex:1}} to={`/product/${p.id}`}>View Details</Link>
+          : <><button className="btn btn-navy btn-sm" style={{flex:1}} onClick={()=>addCart(p,isRent?"rent":"buy")}>{isRent?"Rent now":"Add to cart"}</button>
+        <Link className="btn btn-ghost btn-sm" to={`/product/${p.id}`} aria-label="View details"><ArrowRight size={16} /></Link></>}
       </div>
     </div>
   </div>;

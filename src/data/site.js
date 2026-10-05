@@ -6,6 +6,9 @@ export const PHONE_DISPLAY_2 = "+91 98228 71537";
 export const PHONE_DISPLAY_3 = "+91 77090 48937";
 export const INSTA = "@shah_enterprises_nibm";
 export const ADDRESS = "Shop no 7, Surya Building, Opposite Sunshree Kangan, NIBM Road, Pune";
+// DEMO MODE for client presentation: hides cart + wishlist everywhere.
+// Set to false to bring the full shop back.
+export const DEMO_HIDE_COMMERCE = true;
 export const ADDRESS_SHORT = "Shah Enterprises — NIBM, Kondhwa, Pune";
 export const OFFER = { code:"FLEXI10", title:"10% OFF your first rental order", sub:"Use code at checkout on WhatsApp • Limited period" };
 export const AREAS = ["NIBM","Kondhwa","Undri","Hadapsar","Magarpatta","Katraj","Wanwadi","Camp","Kothrud","Baner"];
@@ -130,7 +133,7 @@ export const subName = (slug) => {
 // and add an entry here — the "Real makeovers" section appears automatically.
 // Example: { title:"Tired wood out. Solid comfort in.", tag:"BED RENEWAL", before:"/img/make-bed-before.jpg", after:"/img/make-bed-after.jpg" },
 export const MAKEOVERS = [
-  { title:"Tired wood out. Solid comfort in.", tag:"BED RENEWAL", before:"/img/gen/old-sagging-bed-in-bedroom.jpg", after:"/img/gen/fixed-bed-on-wood-floor.jpg" },
+  { title:"Tired wood out. Solid comfort in.", tag:"BED RENEWAL", before:"/img/gen/fixed-bed-on-wood-floor.jpg", after:"/img/gen/old-sagging-bed-in-bedroom.jpg" },
   { title:"Same sofa. Brand-new soul.", tag:"SOFA RENEWAL", before:"/img/gen/torn-fabric-sofa-on-floor.jpg", after:"/img/gen/sofa-renewed-with-new-fabric.jpg" },
   { title:"Scratches gone in one visit.", tag:"POLISHING", before:"/img/gen/scratched-wooden-table-top.jpg", after:"/img/gen/polished-wooden-table.jpg" },
   { title:"Peeling past. Mirror finish.", tag:"WARDROBE", before:"/img/gen/old-steel-almirah-in-bedroom.jpg", after:"/img/gen/wardrobe-straight-front-view.jpg" },

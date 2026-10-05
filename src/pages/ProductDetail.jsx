@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Truck } from "lucide-react";
-import { FABRICS, PRODUCTS, WHATSAPP_MAIN, priceFor, waLink, ADDONS, OFFER } from "../data/site";
+import { FABRICS, PRODUCTS, WHATSAPP_MAIN, priceFor, waLink, ADDONS, OFFER, DEMO_HIDE_COMMERCE } from "../data/site";
 import { useShop } from "../store/ShopContext";
 import { ProductCard } from "../components/ui";
 
@@ -47,7 +47,7 @@ export default function ProductDetail(){
         <div className="dimrow">{["L","W","H"].map(k=><div key={k}><label>{k==="L"?"Length":k==="W"?"Width":"Height"} (cm)</label><input type="number" value={dims[k]} onChange={e=>setDims({...dims,[k]:+e.target.value})} /></div>)}</div>
         <div className="kv"><span>Free delivery in Pune</span><span>Free installation</span><span>Easy swap / return</span><span>50% buyback on purchase*</span></div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
-          <button className="btn btn-orange" onClick={()=>addCart(p,mode,1,{color:color.name,...dims,addon:addon.name})}>{mode==="rent"?"Rent now":"Add to cart"}</button>
+          {!DEMO_HIDE_COMMERCE && <button className="btn btn-orange" onClick={()=>addCart(p,mode,1,{color:color.name,...dims,addon:addon.name})}>{mode==="rent"?"Rent now":"Add to cart"}</button>}
           <a className="btn btn-wa" target="_blank" rel="noreferrer" href={waLink(WHATSAPP_MAIN,`Hi FlexiFurni! I want this: ${p.name} (${mode.toUpperCase()} @ Rs.${price}/ ${mode==="rent"?"per month "+tenure:""}) Colour: ${color.name} Size: ${dims.L}x${dims.W}x${dims.H} cm Add-on: ${addon.name}`)}>WhatsApp Order</a>
           <Link className="btn btn-ghost" to={`/room-view?model=${p.category==="bedroom"?"bed":"sofa"}&color=${encodeURIComponent(color.hex)}`}>See in my room</Link>
         </div>
