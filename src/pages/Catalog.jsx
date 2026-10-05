@@ -38,7 +38,7 @@ function Toolbar({ t, mode }){
 export function Rent(){
   const t = useCatalog("rent");
   return <div className="container section">
-    <div className="sec-head"><div><h2>Rent furniture — flexible monthly plans</h2><p>Free delivery in Pune • Free swap & service • Zero-hassle return. Longer tenure = lower rent.</p></div><Link className="btn btn-ghost btn-sm" to="/combo">1BHK Combos</Link></div>
+    <div className="sec-head"><div><h2>Rent furniture - flexible monthly plans</h2><p>Free delivery in Pune • Free swap & service • Zero-hassle return. Longer tenure = lower rent.</p></div><Link className="btn btn-ghost btn-sm" to="/combo">1BHK Combos</Link></div>
     <Toolbar t={t} mode="rent" />
     <div className="grid">{t.list.map(p=><ProductCard key={p.id} p={p} mode="rent" />)}</div>
     {t.list.length===0&&<p>No matches. {DEMO_HIDE_INTERACTIVE ? "Try clearing filters." : <>Try clearing filters or <Link to="/customize">custom-make it</Link>.</>}</p>}
@@ -48,7 +48,7 @@ export function Rent(){
 export function Buy(){
   const t = useCatalog("buy");
   return <div className="container section">
-    <div className="sec-head"><div><h2>Buy furniture — factory-direct + 50% buyback</h2><p>Buy today, sell back tomorrow. We give 50% of the value back.* Solid wood, premium finish.</p></div></div>
+    <div className="sec-head"><div><h2>Buy furniture - factory-direct + 50% buyback</h2><p>Buy today, sell back tomorrow. We give 50% of the value back.* Solid wood, premium finish.</p></div></div>
     <Toolbar t={t} mode="buy" />
     <div className="grid">{t.list.map(p=><ProductCard key={p.id} p={p} mode="buy" />)}</div>
   </div>;
@@ -70,9 +70,9 @@ export function CategoryView(){
   const list = PRODUCTS.filter(p=>p.category===slug);
   if(!c) return <div className="container section">Category not found.</div>;
   return <div className="container section">
-    <div className="hero-mini" style={{marginBottom:18}}><div><h2 style={{margin:0}}>{c.name}</h2><p style={{color:"#c9d3ee"}}>Rent or buy {c.name.toLowerCase()} in Pune with fast delivery. Custom sizes available — talk to us on WhatsApp.</p></div><img src={c.img} alt={c.name}/></div>
+    <div className="hero-mini" style={{marginBottom:18}}><div><h2 style={{margin:0}}>{c.name}</h2><p style={{color:"#c9d3ee"}}>Rent or buy {c.name.toLowerCase()} in Pune with fast delivery. Custom sizes available - talk to us on WhatsApp.</p></div><img src={c.img} alt={c.name}/></div>
     <div className="grid">{list.map(p=><ProductCard key={p.id} p={p} />)}</div>
-    {list.length===0&&<div className="note">Nothing listed here yet — {DEMO_HIDE_INTERACTIVE ? "talk to us on WhatsApp and we will arrange it." : <>but we custom-make {c.name.toLowerCase()} in our factory. <Link to="/customize">Get a quote →</Link></>}</div>}
+    {list.length===0&&<div className="note">Nothing listed here yet - {DEMO_HIDE_INTERACTIVE ? "talk to us on WhatsApp and we will arrange it." : <>but we custom-make {c.name.toLowerCase()} in our factory. <Link to="/customize">Get a quote →</Link></>}</div>}
   </div>;
 }
 
@@ -94,6 +94,6 @@ export function SubView(){
     <div className="sec-head"><div><h2>{name} ({list.length})</h2><p>Rent or buy {name.toLowerCase()} in Pune with free delivery. Custom sizes made in our factory.</p></div></div>
     {list.length>0
       ? <div className="grid">{list.map(p=><ProductCard key={p.id} p={p}/>)}</div>
-      : <div className="panel"><h3 style={{marginTop:0}}>Coming to our catalogue soon</h3><p style={{color:"var(--muted)"}}>We don't stock ready {name.toLowerCase()} yet — but our factory builds them to order in 10–14 days. Send us a photo of what you like.</p><div style={{display:"flex",gap:10,flexWrap:"wrap",marginTop:8}}>{!DEMO_HIDE_INTERACTIVE && <Link className="btn btn-orange" to="/customize">Custom-make it</Link>}<Link className="btn btn-ghost" to="/contact">Ask on WhatsApp</Link></div></div>}
+      : <div className="panel"><h3 style={{marginTop:0}}>Coming to our catalogue soon</h3><p style={{color:"var(--muted)"}}>We don't stock ready {name.toLowerCase()} yet - but our factory builds them to order in 10-14 days. Send us a photo of what you like.</p><div style={{display:"flex",gap:10,flexWrap:"wrap",marginTop:8}}>{!DEMO_HIDE_INTERACTIVE && <Link className="btn btn-orange" to="/customize">Custom-make it</Link>}<Link className="btn btn-ghost" to="/contact">Ask on WhatsApp</Link></div></div>}
   </div>;
 }

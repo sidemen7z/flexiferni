@@ -14,7 +14,7 @@ export const DEMO_HIDE_COMMERCE = true;
 // tenure/size/add-on selectors, catalog filters.
 // Set to false to bring all interactive selectors back.
 export const DEMO_HIDE_INTERACTIVE = true;
-export const ADDRESS_SHORT = "Shah Enterprises — NIBM, Kondhwa, Pune";
+export const ADDRESS_SHORT = "Shah Enterprises - NIBM, Kondhwa, Pune";
 export const OFFER = { code:"FLEXI10", title:"10% OFF your first rental order", sub:"Use code at checkout on WhatsApp • Limited period" };
 export const AREAS = ["NIBM","Kondhwa","Undri","Hadapsar","Magarpatta","Katraj","Wanwadi","Camp","Kothrud","Baner"];
 export const waLink = (phone, text) => `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
@@ -83,7 +83,7 @@ export const PRODUCTS = [
   { id:"custom-sofa-l", sub:"Sofas", name:"L-Shape Custom Sofa (Choose Fabric)", category:"custom-made", type:"custom", img:"/img/gen/modular-sofa-with-material-swatches.jpg", gallery:["/img/gen/modular-sofa-with-material-swatches.jpg","/img/gen/beige-sectional-and-coffee-table.jpg","/img/gen/grey-l-shape-sectional-sofa.jpg"], rent:0, buy:52999, mrp:64999, rating:4.9, reviews:37, dims:{L:260,W:160,H:85}, desc:"Pick fabric, colour, length. We build it in 10-14 days.", tags:["custom","fabric"] },
   { id:"study-loft-bed", sub:"Single Beds", name:"Study + Loft Bed for Students", category:"bedroom", type:"rent", img:u("photo-1519710164239-da123dc03ef4"), gallery:[u("photo-1519710164239-da123dc03ef4")], rent:1099, buy:24999, mrp:29999, rating:4.5, reviews:68, dims:{L:200,W:90,H:170}, desc:"Ideal for students near NIBM, Undri, Kondhwa.", tags:["students"] },
   { id:"office-4pack", sub:"Office Chairs", name:"4-Seater Office Workstation Pack", category:"home-office", type:"rent", img:"/img/gen/office-workstation-row-furniture.jpg", gallery:["/img/gen/office-workstation-row-furniture.jpg","/img/gen/meeting-chair-pair-in-office.jpg","/img/gen/startup-team-in-rented-office.jpg"], rent:2499, buy:59999, mrp:74999, rating:4.6, reviews:45, dims:{L:240,W:120,H:75}, desc:"Startup offices: rent full setups monthly.", tags:["office","combo"] },
-  { id:"wood-bookshelf", sub:"Bookshelves", name:"Sheesham Wall Bookshelf — 5 Tier", category:"wooden-work", type:"both", img:"/img/gen/sheesham-bookshelf-full-of-books.jpg", gallery:["/img/gen/sheesham-bookshelf-full-of-books.jpg","/img/gen/sheesham-bookshelf-filled-with-b.jpg","/img/gen/small-bookshelf-in-study-corner.jpg"], rent:799, buy:18999, mrp:23999, rating:4.7, reviews:63, dims:{L:180,W:35,H:200}, desc:"Solid-wood bookshelf, factory finish. Made to your wall width.", tags:["wooden","custom"] },
+  { id:"wood-bookshelf", sub:"Bookshelves", name:"Sheesham Wall Bookshelf - 5 Tier", category:"wooden-work", type:"both", img:"/img/gen/sheesham-bookshelf-full-of-books.jpg", gallery:["/img/gen/sheesham-bookshelf-full-of-books.jpg","/img/gen/sheesham-bookshelf-filled-with-b.jpg","/img/gen/small-bookshelf-in-study-corner.jpg"], rent:799, buy:18999, mrp:23999, rating:4.7, reviews:63, dims:{L:180,W:35,H:200}, desc:"Solid-wood bookshelf, factory finish. Made to your wall width.", tags:["wooden","custom"] },
   { id:"wood-study-table", sub:"Study Tables", name:"Solid Wood Study Table", category:"wooden-work", type:"both", img:"/img/gen/solid-wood-study-table-and.jpg", gallery:["/img/gen/solid-wood-study-table-and.jpg","/img/gen/foldable-study-table-in-room.jpg","/img/gen/wooden-study-chair-with-cushion.jpg"], rent:499, buy:9499, mrp:11999, rating:4.6, reviews:81, dims:{L:110,W:55,H:75}, desc:"Sturdy study/work table in seasoned wood. Student favourite.", tags:["wooden","study"] },
   { id:"wood-sideboard", sub:"Chest of Drawers", name:"Cane & Wood Sideboard Console", category:"wooden-work", type:"both", img:"/img/gen/sideboard-console-with-vases.jpg", gallery:["/img/gen/sideboard-console-with-vases.jpg","/img/gen/wooden-chest-of-drawers.jpg","/img/gen/wooden-coffee-table-in-room.jpg"], rent:899, buy:21999, mrp:26999, rating:4.8, reviews:47, dims:{L:140,W:40,H:80}, desc:"Handcrafted cane + solid wood console. Designer look, factory price.", tags:["wooden","premium"] },
   { id:"dining-round-2s", sub:"Dining Tables", name:"Round 2-Seater Dining Table", category:"dining", type:"both", img:"/img/gen/white-dining-table-and-chairs.jpg", gallery:["/img/gen/white-dining-table-and-chairs.jpg","/img/gen/white-dining-table-and-chairs-2.jpg","/img/gen/glass-top-dining-table-photography.jpg"], rent:649, buy:12999, mrp:15999, rating:4.5, reviews:59, dims:{L:90,W:90,H:75}, desc:"Compact round dining for couples & small kitchens.", tags:["compact"] },
@@ -135,7 +135,7 @@ export const subName = (slug) => {
 };
 
 // Before/after makeover sliders. Drop matching photo pairs in public/img/
-// and add an entry here — the "Real makeovers" section appears automatically.
+// and add an entry here - the "Real makeovers" section appears automatically.
 // Example: { title:"Tired wood out. Solid comfort in.", tag:"BED RENEWAL", before:"/img/make-bed-before.jpg", after:"/img/make-bed-after.jpg" },
 export const MAKEOVERS = [
   { title:"Tired wood out. Solid comfort in.", tag:"BED RENEWAL", before:"/img/gen/fixed-bed-on-wood-floor.jpg", after:"/img/gen/old-sagging-bed-in-bedroom.jpg" },

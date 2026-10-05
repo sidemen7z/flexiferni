@@ -48,7 +48,7 @@ function Hero(){
     <div className="cine-shade" />
     <div className="container cine-content">
       <div className="cine-rise" key={i}>
-        <p className="cine-eyebrow">{s.eye} — FLEXIFURNI PUNE</p>
+        <p className="cine-eyebrow">{s.eye} - FLEXIFURNI PUNE</p>
         <h1>{s.h1[0]}<br/>{s.h1[1]}</h1>
         <div className="hero-cta">
           <Link className="btn btn-light btn-lg" to="/buy">Shop Furniture</Link>
@@ -127,16 +127,16 @@ function CustomPreview(){
       <p className="eyebrow">CUSTOM FURNITURE</p>
       <h2>Design it your way.</h2>
       <p style={{color:"var(--muted)",fontSize:17}}>Built in our own factory, measured for your room. Try it here, then send the design to us.</p>
-      {[ "Any size — measured at your home, free", "Solid wood frame, 5-year warranty", "Ready in 10–14 days, delivered + installed" ].map(t=><div className="checkline" key={t}><Check size={18} /><span>{t}</span></div>)}
+      {[ "Any size - measured at your home, free", "Solid wood frame, 5-year warranty", "Ready in 10-14 days, delivered + installed" ].map(t=><div className="checkline" key={t}><Check size={18} /><span>{t}</span></div>)}
       <div style={{display:"flex",gap:12,marginTop:22,flexWrap:"wrap"}}>
         <Link className="btn btn-navy" to="/customize">Open Full Customizer</Link>
         <a className="btn btn-ghost" target="_blank" rel="noreferrer" href={wa}>WhatsApp Us</a>
       </div>
     </div></Reveal>
     <Reveal delay={120}><div className="cfgmini">
-      <h4>SOFA — PREVIEW</h4>
+      <h4>SOFA - PREVIEW</h4>
       <img src="/img/gen/beige-sectional-and-coffee-table.jpg" alt="Custom sofa preview" style={{width:"100%",height:280,objectFit:"cover",borderRadius:12}} />
-      <h4 style={{marginTop:14}}>COLOUR — {color.name.toUpperCase()}</h4>
+      <h4 style={{marginTop:14}}>COLOUR - {color.name.toUpperCase()}</h4>
       <div className="dots">{FABRICS.map(f=><button key={f.name} title={f.name} className={"dot"+(color.name===f.name?" on":"")} style={{background:f.hex}} onClick={()=>setColor(f)} />)}</div>
       <h4>FABRIC</h4>
       <div className="fabpills">{FABRIC_OPTS.map(f=><button key={f.name} className={fab.name===f.name?"on":""} onClick={()=>setFab(f)}>{f.name}</button>)}</div>
@@ -187,9 +187,9 @@ function DecorBand(){
     <Reveal><div className="buyback">
       <img src="/img/gen/red-kashmiri-hand-knotted-carpet.jpg" alt="Premium Kashmiri carpet" loading="lazy" />
       <div className="txt">
-        <span className="eyebrow">NEW — CARPETS & GRASS</span>
+        <span className="eyebrow">NEW - CARPETS & GRASS</span>
         <h2>Kashmiri carpets.<br/><span>Green turf.</span></h2>
-        <p>Authentic luxury carpets for living rooms, bedrooms and offices — plus zero-maintenance grass rolls for balconies, terraces and events. Custom sizes, best price in Pune.</p>
+        <p>Authentic luxury carpets for living rooms, bedrooms and offices - plus zero-maintenance grass rolls for balconies, terraces and events. Custom sizes, best price in Pune.</p>
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}><Link className="btn btn-orange" to="/category/decor">Shop carpets & grass</Link></div>
       </div>
     </div></Reveal>
@@ -203,7 +203,7 @@ function SellSec(){
       <h2>Have furniture you don't need anymore?</h2>
       <p style={{color:"var(--muted)",fontSize:17}}>Sell it to FlexiFurni. Fair price, free pickup across Pune.</p>
       <div className="steps">
-        {[["01","Upload photos","Send 2–3 photos on WhatsApp"],["02","Tell us about it","Age, brand, bill value"],["03","Get an estimate","Fixed quote within hours"],["04","Free pickup","We collect, you get paid"]].map(([n,t,s])=><div className="step" key={n}><span className="n">{n}</span><div><b>{t}</b><small>{s}</small></div></div>)}
+        {[["01","Upload photos","Send 2-3 photos on WhatsApp"],["02","Tell us about it","Age, brand, bill value"],["03","Get an estimate","Fixed quote within hours"],["04","Free pickup","We collect, you get paid"]].map(([n,t,s])=><div className="step" key={n}><span className="n">{n}</span><div><b>{t}</b><small>{s}</small></div></div>)}
       </div>
       <Link className="btn btn-orange btn-lg" to="/sell">Sell My Furniture <ArrowRight size={17} /></Link>
     </div></Reveal>

@@ -12,7 +12,7 @@ export function Gallery(){
     ["/img/gen/store-owner-crossing-arms.jpg","Irfan Shah, founder"],
   ];
   return <div className="container section">
-    <div className="sec-head"><div><h2>Photo gallery — real work</h2><p>Factory, custom builds, deliveries & store. All photos are our own work.</p></div></div>
+    <div className="sec-head"><div><h2>Photo gallery - real work</h2><p>Factory, custom builds, deliveries & store. All photos are our own work.</p></div></div>
     <div className="grid-3">
       <img src="/poster-bedroom.jpg" alt="FlexiFurni custom bedroom" style={{borderRadius:16,border:"1px solid #e9e4d8"}} />
       <img src="/poster-appliances.jpg" alt="Rent Buy Sell appliances" style={{borderRadius:16,border:"1px solid #e9e4d8"}} />

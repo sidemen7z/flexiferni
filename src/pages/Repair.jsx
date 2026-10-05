@@ -7,7 +7,7 @@ const SERVICES = [
   { Icon:Armchair, name:"Sofa Repair & Reupholstery", price:"from ₹4,999", desc:"Foam replacement, new fabric, spring & frame fixing. Old sofa becomes new." },
   { Icon:Sparkles, name:"Sofa Dry-Cleaning", price:"from ₹999", desc:"Deep shampoo wash for fabric sofas, stain & smell removal at home." },
   { Icon:Paintbrush, name:"Wood Polish & Touch-up", price:"from ₹799", desc:"Melamine / PU polish, scratch removal for beds, tables, wardrobes." },
-  { Icon:BedDouble, name:"Bed & Dining Fixing", price:"from ₹499", desc:"Loose joints, broken slats, wobbly chairs — tightened & strengthened." },
+  { Icon:BedDouble, name:"Bed & Dining Fixing", price:"from ₹499", desc:"Loose joints, broken slats, wobbly chairs - tightened & strengthened." },
   { Icon:DoorClosed, name:"Wardrobe Channels & Hinges", price:"from ₹399", desc:"Sliding noise, stuck drawers, loose hinges fixed same visit." },
   { Icon:Refrigerator, name:"Appliance Basic Service", price:"from ₹499", desc:"Fridge, washing machine & cooler check-up, minor repair, gas check." },
 ];
@@ -21,12 +21,12 @@ export default function Repair(){
   const book = (e)=>{
     e.preventDefault();
     window.open(waLink(WHATSAPP_MAIN,`${f.name?`Name: ${f.name}\nPhone: ${f.phone}\n`:""}Service: ${picked} (${svc.price})\nItem: ${f.item}\nAddress: ${f.address}\nPreferred date: ${f.date}\n(I will send item photos in chat)`),"_blank");
-    say("Opening WhatsApp — attach item photos in chat.");
+    say("Opening WhatsApp - attach item photos in chat.");
   };
   return <div className="container section">
     <div className="sec-head"><div>
-      <h2>Furniture Repair — at your doorstep</h2>
-      <p>4th FlexiFurni service: <b>BUY • SELL • RENT • REPAIR.</b> Don't throw old furniture — we fix, polish & renew it. Free inspection in Pune.</p>
+      <h2>Furniture Repair - at your doorstep</h2>
+      <p>4th FlexiFurni service: <b>BUY • SELL • RENT • REPAIR.</b> Don't throw old furniture - we fix, polish & renew it. Free inspection in Pune.</p>
     </div></div>
 
     <div className="grid-3" style={{marginBottom:18}}>
@@ -40,7 +40,7 @@ export default function Repair(){
 
     <div className="forms">
       <form className="form" onSubmit={book}>
-        <h3 style={{marginTop:0}}>Book repair visit — {picked}</h3>
+        <h3 style={{marginTop:0}}>Book repair visit - {picked}</h3>
         <label>Service</label>
         <select value={picked} onChange={e=>setPicked(e.target.value)}>{SERVICES.map(s=><option key={s.name}>{s.name}</option>)}</select>
         <label>Which item? (e.g. Sofa 3-seater, Sheesham bed)</label>
@@ -54,12 +54,12 @@ export default function Repair(){
         <label>Preferred date</label>
         <input type="date" value={f.date} onChange={e=>setF({...f,date:e.target.value})} />
         <button className="btn btn-wa" style={{marginTop:14}}>Book on WhatsApp</button>
-        <div className="note" style={{marginTop:10}}>After booking, <b>send 2–3 photos</b> of the damaged part in chat → we confirm exact price before visiting. No advance needed.</div>
+        <div className="note" style={{marginTop:10}}>After booking, <b>send 2-3 photos</b> of the damaged part in chat → we confirm exact price before visiting. No advance needed.</div>
       </form>
       <div>
         <div className="form"><h3 style={{marginTop:0}}>How repair works</h3>
-          <ol style={{color:"#4b587c",lineHeight:1.8}}><li>Book + send photos on WhatsApp.</li><li>We confirm fixed price ({svc.price} slab).</li><li>Carpenter visits with material.</li><li>Most jobs done in 1–3 hours at home.</li><li>Pay after work. 30-day service warranty.*</li></ol>
-          <div className="note">Wooden furniture is our speciality — factory craftsmen, same team that builds new furniture.</div>
+          <ol style={{color:"#4b587c",lineHeight:1.8}}><li>Book + send photos on WhatsApp.</li><li>We confirm fixed price ({svc.price} slab).</li><li>Carpenter visits with material.</li><li>Most jobs done in 1-3 hours at home.</li><li>Pay after work. 30-day service warranty.*</li></ol>
+          <div className="note">Wooden furniture is our speciality - factory craftsmen, same team that builds new furniture.</div>
         </div>
         <div className="banner50" style={{marginTop:14,gridTemplateColumns:"1fr"}}>
           <div><h3 style={{margin:0}}>Old sofa? <span style={{color:"#ff7a1a"}}>Renew, don't replace.</span></h3>

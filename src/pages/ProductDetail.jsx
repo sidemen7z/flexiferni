@@ -21,7 +21,7 @@ export default function ProductDetail(){
   const base = priceFor(p, mode, tenure);
   const price = base + (mode==="buy"?addon.add:0);
   const checkPin = ()=>{
-    if(/^[1-9][0-9]{5}$/.test(pin)) setPinMsg(`Delivery + installation available at ${pin} in 48–72 hrs. Free.`);
+    if(/^[1-9][0-9]{5}$/.test(pin)) setPinMsg(`Delivery + installation available at ${pin} in 48-72 hrs. Free.`);
     else setPinMsg("Enter a valid 6-digit pincode.");
   };
   return <div className="container section">
@@ -30,7 +30,7 @@ export default function ProductDetail(){
       <div className="gallery">
         <div className="main"><img src={p.gallery[img]} alt={p.name} /></div>
         <div className="thumbs">{p.gallery.map((g,i)=><img key={i} src={g} className={i===img?"on":""} onClick={()=>setImg(i)} alt="" />)}</div>
-        <div style={{padding:"0 14px 14px",fontSize:13,color:"#667085"}}>For exact shade and size, talk to us on WhatsApp — free swatch and measurement.</div>
+        <div style={{padding:"0 14px 14px",fontSize:13,color:"#667085"}}>For exact shade and size, talk to us on WhatsApp - free swatch and measurement.</div>
       </div>
       <div className="panel">
         <div style={{display:"flex",gap:8,fontSize:11,fontWeight:800,letterSpacing:"1.5px",color:"var(--navy)"}}><span>RENT</span><span style={{color:"#C9CFD9"}}>|</span><span>BUY</span><span style={{color:"#C9CFD9"}}>|</span><span>50% BUYBACK</span></div>
@@ -60,7 +60,7 @@ export default function ProductDetail(){
 
         <div className="panel" style={{marginTop:16,background:"var(--orange-soft)",borderColor:"#F3D9B8"}}>
           <b style={{fontSize:14}}>Offer: {OFFER.title}</b>
-          <p style={{margin:"6px 0 0",fontSize:13.5,color:"#7A4A12"}}>Code <b>{OFFER.code}</b> — mention it on WhatsApp checkout and we apply it. {OFFER.sub}.</p>
+          <p style={{margin:"6px 0 0",fontSize:13.5,color:"#7A4A12"}}>Code <b>{OFFER.code}</b> - mention it on WhatsApp checkout and we apply it. {OFFER.sub}.</p>
         </div>
 
         <div style={{marginTop:16}}>

@@ -34,7 +34,7 @@ export default function Sell(){
           <a className="btn btn-wa" target="_blank" rel="noreferrer" href={waLink(WHATSAPP_MAIN,msg)}>Send to WhatsApp</a>
           <span className="btn btn-ghost" onClick={()=>alert("Saved! Our team will call you for pickup inspection.")}>Request pickup call</span>
         </div>
-        <small style={{color:"#667085"}}>Tip: after tapping WhatsApp Send, attach the same photo in chat — our team confirms the offer within hours.</small>
+        <small style={{color:"#667085"}}>Tip: after tapping WhatsApp Send, attach the same photo in chat - our team confirms the offer within hours.</small>
       </div>
       <div>
         <div className="form"><h3 style={{marginTop:0}}>How buyback works</h3><ol style={{color:"#4b587c",lineHeight:1.7}}><li>Buy new / custom furniture from FlexiFurni with bill.</li><li>Use it as long as you want.</li><li>When shifting / upgrading, send photos on WhatsApp.</li><li>We inspect, pick up free & pay <b>up to 50% back</b>.*</li></ol><div className="note">*50% on eligible solid-wood & standard items in good condition. Appliances & damaged goods valued separately. T&C apply.</div></div>

@@ -7,7 +7,7 @@ import { ADDRESS, OFFER, waCheckout, DEMO_HIDE_COMMERCE, DEMO_HIDE_INTERACTIVE }
 export function Topbar(){
   const { area } = useShop();
   return <div className="topbar"><div className="container">
-    <span>Deliver to {area}, Pune — Free delivery on every order</span>
+    <span>Deliver to {area}, Pune - Free delivery on every order</span>
     <span>{OFFER.code}: {OFFER.title}</span>
   </div></div>;
 }
@@ -65,8 +65,8 @@ export function Footer(){
   return <footer className="footer"><div className="container">
     <div>
       <img src="/logo.png" alt="FlexiFurni" style={{height:52,background:"#fff",borderRadius:10,padding:4}} />
-      <p style={{margin:"14px 0",maxWidth:36+"ch"}}>Rent. Buy. Sell. Live Easy. Quality furniture for every home and office — flexible options, factory-direct prices, hassle-free experience.</p>
-      <p style={{color:"#8FA0C4",fontSize:13}}>Buy today, sell back tomorrow — up to 50% value back, subject to terms.</p>
+      <p style={{margin:"14px 0",maxWidth:36+"ch"}}>Rent. Buy. Sell. Live Easy. Quality furniture for every home and office - flexible options, factory-direct prices, hassle-free experience.</p>
+      <p style={{color:"#8FA0C4",fontSize:13}}>Buy today, sell back tomorrow - up to 50% value back, subject to terms.</p>
     </div>
     <div><h4>SHOP</h4><p><Link to="/buy">Buy furniture</Link><br/><Link to="/rent">Rent furniture</Link><br/><Link to="/sell">Sell / 50% buyback</Link><br/><Link to="/repair">Repair service</Link><br/>{!DEMO_HIDE_INTERACTIVE && <><Link to="/customize">Custom-made</Link><br/></>}<Link to="/categories">All categories</Link><br/><Link to="/gallery">Photo gallery</Link></p></div>
     <div><h4>COMPANY</h4><p><Link to="/about">About + Factory</Link><br/><Link to="/contact">Contact</Link><br/>{!DEMO_HIDE_COMMERCE && <><Link to="/cart">Cart & checkout</Link><br/></>}</p></div>
@@ -93,7 +93,7 @@ export function CartDrawer(){
     <aside className="drawer">
       <div className="dhead"><b>Your Cart ({n})</b><button onClick={()=>setCartOpen(false)} aria-label="Close cart"><X size={20} /></button></div>
       <div className="dbody">
-        {cart.length===0 && <p style={{color:"var(--muted)"}}>Empty. Add sofas, beds, appliances — checkout on WhatsApp.</p>}
+        {cart.length===0 && <p style={{color:"var(--muted)"}}>Empty. Add sofas, beds, appliances - checkout on WhatsApp.</p>}
         {cart.map(c=><div className="dline" key={c.key}>
           <img src={c.img} alt="" />
           <div style={{flex:1}}><b style={{fontSize:14}}>{c.name}</b>
