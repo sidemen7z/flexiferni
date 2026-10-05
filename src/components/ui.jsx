@@ -51,7 +51,7 @@ export function Navbar(){
     <button className="mclose" onClick={()=>setOpen(false)} aria-label="Close"><X size={26} /></button>
     <form className="msearch" onSubmit={go}><Search size={17} /><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search furniture..." aria-label="Search" /></form>
     <div className="mlinks">
-      {[["/buy","Buy"],["/rent","Rent"],["/customize","Custom"],["/sell","Sell"],["/gallery","Gallery"],["/repair","Repair"],["/room-view","Room Preview"],["/categories","Collections"],["/about","About"],["/contact","Contact"],["/account","Account"]].map(([l,t],i)=><Link key={l} to={l} onClick={()=>setOpen(false)} style={{transitionDelay:(0.04*i)+"s"}}>{t}</Link>)}
+      {[["/buy","Buy"],["/rent","Rent"],["/customize","Custom"],["/sell","Sell"],["/gallery","Gallery"],["/repair","Repair"],["/categories","Collections"],["/about","About"],["/contact","Contact"],["/account","Account"]].map(([l,t],i)=><Link key={l} to={l} onClick={()=>setOpen(false)} style={{transitionDelay:(0.04*i)+"s"}}>{t}</Link>)}
     </div>
     <div className="mfoot">
       <a className="btn btn-orange" href="https://wa.me/919975075425" target="_blank" rel="noreferrer"><Phone size={16} /> WhatsApp Us</a>
@@ -69,7 +69,7 @@ export function Footer(){
       <p style={{color:"#8FA0C4",fontSize:13}}>Buy today, sell back tomorrow — up to 50% value back, subject to terms.</p>
     </div>
     <div><h4>SHOP</h4><p><Link to="/buy">Buy furniture</Link><br/><Link to="/rent">Rent furniture</Link><br/><Link to="/sell">Sell / 50% buyback</Link><br/><Link to="/repair">Repair service</Link><br/><Link to="/customize">Custom-made</Link><br/><Link to="/categories">All categories</Link><br/><Link to="/gallery">Photo gallery</Link></p></div>
-    <div><h4>COMPANY</h4><p><Link to="/about">About + Factory</Link><br/><Link to="/contact">Contact</Link><br/><Link to="/room-view">View in your room</Link><br/>{!DEMO_HIDE_COMMERCE && <><Link to="/cart">Cart & checkout</Link><br/></>}</p></div>
+    <div><h4>COMPANY</h4><p><Link to="/about">About + Factory</Link><br/><Link to="/contact">Contact</Link><br/>{!DEMO_HIDE_COMMERCE && <><Link to="/cart">Cart & checkout</Link><br/></>}</p></div>
     <div><h4>OUR STORE</h4><p><b style={{color:"#fff"}}>FlexiFurni</b><br/>{ADDRESS}<br/><br/>Irfan Shah<br/><a href="https://wa.me/919975075425">WhatsApp: +91 99750 75425</a><br/><a href="https://wa.me/919822871537">WhatsApp: +91 98228 71537</a><br/><a href="https://wa.me/917709048937">WhatsApp: +91 77090 48937</a><br/><span style={{color:"#8FA0C4"}}>Instagram: @shah_enterprises_nibm</span></p></div>
   </div>
   <div style={{borderTop:"1px solid #22345F"}}><div className="container" style={{display:"flex",justifyContent:"space-between",padding:"14px 0",fontSize:13,color:"#8FA0C4",flexWrap:"wrap",gap:8}}><span>© 2026 FlexiFurni, Pune.</span><span>Rent · Buy · Sell · Repair · Custom</span></div></div></footer>;

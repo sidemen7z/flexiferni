@@ -49,7 +49,6 @@ export default function ProductDetail(){
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
           {!DEMO_HIDE_COMMERCE && <button className="btn btn-orange" onClick={()=>addCart(p,mode,1,{color:color.name,...dims,addon:addon.name})}>{mode==="rent"?"Rent now":"Add to cart"}</button>}
           <a className="btn btn-wa" target="_blank" rel="noreferrer" href={waLink(WHATSAPP_MAIN,`Hi FlexiFurni! I want this: ${p.name} (${mode.toUpperCase()} @ Rs.${price}/ ${mode==="rent"?"per month "+tenure:""}) Colour: ${color.name} Size: ${dims.L}x${dims.W}x${dims.H} cm Add-on: ${addon.name}`)}>WhatsApp Order</a>
-          <Link className="btn btn-ghost" to={`/room-view?model=${p.category==="bedroom"?"bed":"sofa"}&color=${encodeURIComponent(color.hex)}`}>See in my room</Link>
         </div>
         <div className="note" style={{marginTop:12}}>Customize further? <Link to={`/customize?product=${p.id}`}>Open full customizer →</Link></div>
 

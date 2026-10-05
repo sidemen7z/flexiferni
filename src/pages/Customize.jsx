@@ -2,7 +2,6 @@ import { useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FABRICS, PRODUCTS, WHATSAPP_MAIN, waLink, DEMO_HIDE_COMMERCE } from "../data/site";
 import { useShop } from "../store/ShopContext";
-import SofaPreview from "../components/SofaPreview";
 
 // Interactive sofa/bed customizer: colour, size, legs, fabric -> live SVG preview + price + downloadable design card -> WhatsApp
 export default function Customize(){
@@ -49,23 +48,15 @@ export default function Customize(){
     <div className="sec-head"><div><h2>Design your sofa — live customizer</h2><p>Fewer words, more play: change colour, size, legs. Price updates instantly. Send the design to WhatsApp.</p></div></div>
     <div className="detail">
       <div className="panel" ref={cardRef}>
-        <b>Live preview — real 3D</b>
+        <b>Design preview</b>
         <div style={{marginTop:8}}>
-          <SofaPreview
-            hex={fabric.hex}
-            seats={shape==="Single Chair"?1:shape==="2-Seater"?2:3}
-            lshape={shape.includes("L-Shape")}
-            leg={legs==="Premium metal"?"metal":legs==="Hidden / plinth"?"plinth":"wood"}
-            widthScale={Math.min(1.5, Math.max(0.6, dims.L/210))}
-            height={340}
-          />
+          <img src="/img/gen/modular-sofa-with-material-swatches.jpg" alt="Custom sofa design" style={{width:"100%",height:340,objectFit:"cover",borderRadius:12}} />
         </div>
-        <div style={{fontSize:13,marginTop:8}}>{shape} • {dims.L}cm wide — colour, size and legs update live</div>
+        <div style={{fontSize:13,marginTop:8}}>{shape} • {dims.L}cm wide • {fabric.name}</div>
         <div className="kv"><span>Shape: <b>{shape}</b></span><span>Fabric: <b>{fabric.name}</b></span><span>Size: <b>{dims.L}×{dims.W}×{dims.H}</b></span><span>Estimate: <b>₹{price.toLocaleString("en-IN")}*</b></span></div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
           <button className="btn btn-navy btn-sm" onClick={downloadCard}>Download design card</button>
           <a className="btn btn-wa btn-sm" target="_blank" rel="noreferrer" href={waLink(WHATSAPP_MAIN,sendText)}>Send design on WhatsApp</a>
-          <a className="btn btn-ghost btn-sm" href={`#/room-view?model=sofa&color=${encodeURIComponent(fabric.hex)}`}>See in my room</a>
         </div>
       </div>
       <div className="panel">

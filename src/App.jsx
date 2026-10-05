@@ -8,7 +8,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Sell from "./pages/Sell";
 import Repair from "./pages/Repair";
 import Customize from "./pages/Customize";
-import RoomView, { Gallery } from "./pages/RoomView";
+import { Gallery } from "./pages/RoomView";
 import { About, Contact, Cart, Wishlist, Account } from "./pages/Info";
 
 function Shell(){
@@ -31,7 +31,6 @@ function Shell(){
         <Route path="/sub/:slug" element={<SubView/>} />
         <Route path="/search" element={<SearchView/>} />
         <Route path="/product/:id" element={<ProductDetail/>} />
-        <Route path="/room-view" element={<RoomView/>} />
         <Route path="/gallery" element={<Gallery/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />

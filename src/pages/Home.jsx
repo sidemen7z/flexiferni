@@ -3,7 +3,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { CATEGORIES, PRODUCTS, FABRICS, WHATSAPP_MAIN, waLink, MAKEOVERS } from "../data/site";
 import { ProductCard, CompareSlider } from "../components/ui";
-import SofaPreview from "../components/SofaPreview";
 
 const CAT_SUB = {
   "living-room": "Sofas · Tables", "bedroom": "Beds · Wardrobes", "dining": "Tables · Chairs",
@@ -133,8 +132,8 @@ function CustomPreview(){
       </div>
     </div></Reveal>
     <Reveal delay={120}><div className="cfgmini">
-      <h4>SOFA — LIVE 3D PREVIEW</h4>
-      <SofaPreview hex={color.hex} seats={size.name==="2 Seater"?2:3} lshape={size.name==="L Shape"} leg="wood" widthScale={1} height={280} />
+      <h4>SOFA — PREVIEW</h4>
+      <img src="/img/gen/beige-sectional-and-coffee-table.jpg" alt="Custom sofa preview" style={{width:"100%",height:280,objectFit:"cover",borderRadius:12}} />
       <h4 style={{marginTop:14}}>COLOUR — {color.name.toUpperCase()}</h4>
       <div className="dots">{FABRICS.map(f=><button key={f.name} title={f.name} className={"dot"+(color.name===f.name?" on":"")} style={{background:f.hex}} onClick={()=>setColor(f)} />)}</div>
       <h4>FABRIC</h4>

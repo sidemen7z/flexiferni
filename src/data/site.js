@@ -134,13 +134,4 @@ export const subName = (slug) => {
 // Example: { title:"Tired wood out. Solid comfort in.", tag:"BED RENEWAL", before:"/img/make-bed-before.jpg", after:"/img/make-bed-after.jpg" },
 export const MAKEOVERS = [
   { title:"Tired wood out. Solid comfort in.", tag:"BED RENEWAL", before:"/img/gen/fixed-bed-on-wood-floor.jpg", after:"/img/gen/old-sagging-bed-in-bedroom.jpg" },
-  { title:"Same sofa. Brand-new soul.", tag:"SOFA RENEWAL", before:"/img/gen/torn-fabric-sofa-on-floor.jpg", after:"/img/gen/sofa-renewed-with-new-fabric.jpg" },
-  { title:"Scratches gone in one visit.", tag:"POLISHING", before:"/img/gen/scratched-wooden-table-top.jpg", after:"/img/gen/polished-wooden-table.jpg" },
-  { title:"Peeling past. Mirror finish.", tag:"WARDROBE", before:"/img/gen/old-steel-almirah-in-bedroom.jpg", after:"/img/gen/wardrobe-straight-front-view.jpg" },
-  { title:"Ropes steal rooms. Pulleys return them.", tag:"BALCONY", before:"/img/gen/balcony-with-hanging-clothes.jpg", after:"/img/gen/balcony-with-chairs-and-dryer.jpg" },
-  { title:"Empty on Monday. Home by Wednesday.", tag:"FULL HOME", before:"/img/gen/empty-rental-flat-room.jpg", after:"/img/gen/furnishing-empty-apartment-room.jpg" },
-  { title:"Bare floor. Royal floor.", tag:"CARPET", before:"/img/gen/bare-tiled-living-room-floor.jpg", after:"/img/gen/living-room-with-carpet.jpg" },
-  { title:"Dead terrace. Green escape.", tag:"TURF", before:"/img/gen/stained-concrete-terrace-with-chair.jpg", after:"/img/gen/terrace-party-setup-on-turf.jpg" },
-  { title:"Broken slat. Fixed in one visit.", tag:"REPAIR", before:"/img/gen/broken-bed-slat-repair.jpg", after:"/img/gen/fixed-bed-in-daylight.jpg" },
-  { title:"Showroom reborn.", tag:"RESTORATION", before:"/img/gen/damaged-fabric-sofa.jpg", after:"/img/gen/restored-sofa-in-furniture-showroom.jpg" },
 ];
