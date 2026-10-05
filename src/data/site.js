@@ -9,6 +9,11 @@ export const ADDRESS = "Shop no 7, Surya Building, Opposite Sunshree Kangan, NIB
 // DEMO MODE for client presentation: hides cart + wishlist everywhere.
 // Set to false to bring the full shop back.
 export const DEMO_HIDE_COMMERCE = true;
+// DEMO MODE: hide all interactive selectors + customizer for demo.
+// Hides: colour/fabric selectors, Design Your Room customizer,
+// tenure/size/add-on selectors, catalog filters.
+// Set to false to bring all interactive selectors back.
+export const DEMO_HIDE_INTERACTIVE = true;
 export const ADDRESS_SHORT = "Shah Enterprises — NIBM, Kondhwa, Pune";
 export const OFFER = { code:"FLEXI10", title:"10% OFF your first rental order", sub:"Use code at checkout on WhatsApp • Limited period" };
 export const AREAS = ["NIBM","Kondhwa","Undri","Hadapsar","Magarpatta","Katraj","Wanwadi","Camp","Kothrud","Baner"];

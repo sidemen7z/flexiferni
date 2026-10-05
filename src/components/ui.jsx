@@ -2,7 +2,7 @@ import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { Search, Heart, ShoppingBag, ArrowRight, ArrowUpRight, X, Phone, Home, LayoutGrid, Image as ImageIcon } from "lucide-react";
 import { useShop } from "../store/ShopContext";
-import { ADDRESS, OFFER, waCheckout, DEMO_HIDE_COMMERCE } from "../data/site";
+import { ADDRESS, OFFER, waCheckout, DEMO_HIDE_COMMERCE, DEMO_HIDE_INTERACTIVE } from "../data/site";
 
 export function Topbar(){
   const { area } = useShop();
@@ -34,7 +34,7 @@ export function Navbar(){
     <div className="links">
       <NavLink to="/buy" className={({isActive})=>isActive?"active":""}>Buy</NavLink>
       <NavLink to="/rent" className={({isActive})=>isActive?"active":""}>Rent</NavLink>
-      <NavLink to="/customize" className={({isActive})=>isActive?"active":""}>Custom</NavLink>
+      {!DEMO_HIDE_INTERACTIVE && <NavLink to="/customize" className={({isActive})=>isActive?"active":""}>Custom</NavLink>}
       <NavLink to="/sell" className={({isActive})=>isActive?"active":""}>Sell</NavLink>
       <NavLink to="/gallery" className={({isActive})=>isActive?"active":""}>Gallery</NavLink>
       <NavLink to="/about" className={({isActive})=>isActive?"active":""}>About</NavLink>
@@ -51,7 +51,7 @@ export function Navbar(){
     <button className="mclose" onClick={()=>setOpen(false)} aria-label="Close"><X size={26} /></button>
     <form className="msearch" onSubmit={go}><Search size={17} /><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search furniture..." aria-label="Search" /></form>
     <div className="mlinks">
-      {[["/buy","Buy"],["/rent","Rent"],["/customize","Custom"],["/sell","Sell"],["/gallery","Gallery"],["/repair","Repair"],["/categories","Collections"],["/about","About"],["/contact","Contact"],["/account","Account"]].map(([l,t],i)=><Link key={l} to={l} onClick={()=>setOpen(false)} style={{transitionDelay:(0.04*i)+"s"}}>{t}</Link>)}
+      {[["/buy","Buy"],["/rent","Rent"],...(DEMO_HIDE_INTERACTIVE?[]:[["/customize","Custom"]]),["/sell","Sell"],["/gallery","Gallery"],["/repair","Repair"],["/categories","Collections"],["/about","About"],["/contact","Contact"],["/account","Account"]].map(([l,t],i)=><Link key={l} to={l} onClick={()=>setOpen(false)} style={{transitionDelay:(0.04*i)+"s"}}>{t}</Link>)}
     </div>
     <div className="mfoot">
       <a className="btn btn-orange" href="https://wa.me/919975075425" target="_blank" rel="noreferrer"><Phone size={16} /> WhatsApp Us</a>
@@ -68,7 +68,7 @@ export function Footer(){
       <p style={{margin:"14px 0",maxWidth:36+"ch"}}>Rent. Buy. Sell. Live Easy. Quality furniture for every home and office — flexible options, factory-direct prices, hassle-free experience.</p>
       <p style={{color:"#8FA0C4",fontSize:13}}>Buy today, sell back tomorrow — up to 50% value back, subject to terms.</p>
     </div>
-    <div><h4>SHOP</h4><p><Link to="/buy">Buy furniture</Link><br/><Link to="/rent">Rent furniture</Link><br/><Link to="/sell">Sell / 50% buyback</Link><br/><Link to="/repair">Repair service</Link><br/><Link to="/customize">Custom-made</Link><br/><Link to="/categories">All categories</Link><br/><Link to="/gallery">Photo gallery</Link></p></div>
+    <div><h4>SHOP</h4><p><Link to="/buy">Buy furniture</Link><br/><Link to="/rent">Rent furniture</Link><br/><Link to="/sell">Sell / 50% buyback</Link><br/><Link to="/repair">Repair service</Link><br/>{!DEMO_HIDE_INTERACTIVE && <><Link to="/customize">Custom-made</Link><br/></>}<Link to="/categories">All categories</Link><br/><Link to="/gallery">Photo gallery</Link></p></div>
     <div><h4>COMPANY</h4><p><Link to="/about">About + Factory</Link><br/><Link to="/contact">Contact</Link><br/>{!DEMO_HIDE_COMMERCE && <><Link to="/cart">Cart & checkout</Link><br/></>}</p></div>
     <div><h4>OUR STORE</h4><p><b style={{color:"#fff"}}>FlexiFurni</b><br/>{ADDRESS}<br/><br/>Irfan Shah<br/><a href="https://wa.me/919975075425">WhatsApp: +91 99750 75425</a><br/><a href="https://wa.me/919822871537">WhatsApp: +91 98228 71537</a><br/><a href="https://wa.me/917709048937">WhatsApp: +91 77090 48937</a><br/><span style={{color:"#8FA0C4"}}>Instagram: @shah_enterprises_nibm</span></p></div>
   </div>

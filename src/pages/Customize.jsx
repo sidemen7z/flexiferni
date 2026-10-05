@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { FABRICS, PRODUCTS, WHATSAPP_MAIN, waLink, DEMO_HIDE_COMMERCE } from "../data/site";
+import { FABRICS, PRODUCTS, WHATSAPP_MAIN, waLink, DEMO_HIDE_COMMERCE, DEMO_HIDE_INTERACTIVE } from "../data/site";
 import { useShop } from "../store/ShopContext";
 
 // Interactive sofa/bed customizer: colour, size, legs, fabric -> live SVG preview + price + downloadable design card -> WhatsApp
@@ -43,6 +43,16 @@ export default function Customize(){
     const a=document.createElement("a"); a.download="flexifurni-custom-design.png"; a.href=c.toDataURL("image/png"); a.click();
     say("Design card downloaded — attach it in WhatsApp chat.");
   };
+
+  if(DEMO_HIDE_INTERACTIVE){
+    return <div className="container section">
+      <div className="panel" style={{textAlign:"center",padding:"48px 24px"}}>
+        <h2 style={{margin:"0 0 10px"}}>Custom designs — coming soon in demo</h2>
+        <p style={{color:"var(--muted)",maxWidth:"52ch",margin:"0 auto 20px"}}>Our Design Your Room customizer (colour, size, fabric) is hidden for this demo. Tell us what you need on WhatsApp and we will custom-make it in our factory.</p>
+        <a className="btn btn-wa" target="_blank" rel="noreferrer" href={waLink(WHATSAPP_MAIN,"Hi FlexiFurni! I want a custom furniture quote.")}>Ask for custom quote on WhatsApp</a>
+      </div>
+    </div>;
+  }
 
   return <div className="container section">
     <div className="sec-head"><div><h2>Design your sofa — live customizer</h2><p>Fewer words, more play: change colour, size, legs. Price updates instantly. Send the design to WhatsApp.</p></div></div>

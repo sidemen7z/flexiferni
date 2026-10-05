@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
-import { CATEGORIES, PRODUCTS, FABRICS, WHATSAPP_MAIN, waLink, MAKEOVERS } from "../data/site";
+import { CATEGORIES, PRODUCTS, FABRICS, WHATSAPP_MAIN, waLink, MAKEOVERS, DEMO_HIDE_INTERACTIVE } from "../data/site";
 import { ProductCard, CompareSlider } from "../components/ui";
 
 const CAT_SUB = {
@@ -73,9 +73,10 @@ const NEEDS = [
 ];
 
 function Needs(){
+  const list = DEMO_HIDE_INTERACTIVE ? NEEDS.filter(n=>n.t!=="CUSTOM") : NEEDS;
   return <section className="section"><div className="container">
     <Reveal><div className="sec-head"><p className="eyebrow">WHAT DO YOU NEED?</p><h2>Four ways to furnish.</h2></div></Reveal>
-    <div className="need4">{NEEDS.map((n,k)=><Reveal key={n.t} delay={k*80}><Link to={n.l} className="needcard">
+    <div className="need4">{list.map((n,k)=><Reveal key={n.t} delay={k*80}><Link to={n.l} className="needcard">
       <img src={n.img} alt={n.t} loading="lazy" />
       <div className="t"><h3>{n.t}</h3><p>{n.d}</p><span style={{fontWeight:700,color:"var(--orange)",fontSize:14.5}}>{n.c} →</span></div>
     </Link></Reveal>)}</div>
@@ -118,6 +119,7 @@ function CustomPreview(){
   const [color,setColor] = useState(FABRICS[1]);
   const [fab,setFab] = useState(FABRIC_OPTS[0]);
   const [size,setSize] = useState(SIZE_OPTS[0]);
+  if(DEMO_HIDE_INTERACTIVE) return null;
   const price = size.base + fab.add;
   const wa = waLink(WHATSAPP_MAIN, `Hi FlexiFurni! My custom sofa: ${size.name}, ${fab.name} fabric, colour ${color.name}. Estimate Rs.${price.toLocaleString("en-IN")}. Please confirm.`);
   return <section className="section"><div className="container customsec">
@@ -155,7 +157,7 @@ function RentTabs(){
   const list = useMemo(()=>PRODUCTS.filter(p=>p.category===tab&&(p.type==="rent"||p.type==="both")).slice(0,4),[tab]);
   return <section className="section" style={{paddingTop:0}}><div className="container">
     <Reveal><div className="sec-head"><p className="eyebrow">RENTALS</p><h2>Rent furniture without the commitment.</h2><p>Monthly plans. Free delivery, free swap, free service.</p></div></Reveal>
-    <div className="tabs">{tabs.map(([k,l])=><button key={k} className={tab===k?"on":""} onClick={()=>setTab(k)}>{l}</button>)}</div>
+    {!DEMO_HIDE_INTERACTIVE && <div className="tabs">{tabs.map(([k,l])=><button key={k} className={tab===k?"on":""} onClick={()=>setTab(k)}>{l}</button>)}</div>}
     <div className="grid">{list.map(p=><ProductCard key={p.id} p={p} mode="rent" />)}</div>
     <div style={{marginTop:20}}><Link className="btn btn-ghost" to="/rent">View all rentals <ArrowRight size={16} /></Link></div>
   </div></section>;

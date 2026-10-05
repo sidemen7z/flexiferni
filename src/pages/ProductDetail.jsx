@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Truck } from "lucide-react";
-import { FABRICS, PRODUCTS, WHATSAPP_MAIN, priceFor, waLink, ADDONS, OFFER, DEMO_HIDE_COMMERCE } from "../data/site";
+import { FABRICS, PRODUCTS, WHATSAPP_MAIN, priceFor, waLink, ADDONS, OFFER, DEMO_HIDE_COMMERCE, DEMO_HIDE_INTERACTIVE } from "../data/site";
 import { useShop } from "../store/ShopContext";
 import { ProductCard } from "../components/ui";
 
@@ -24,38 +24,39 @@ export default function ProductDetail(){
     if(/^[1-9][0-9]{5}$/.test(pin)) setPinMsg(`Delivery + installation available at ${pin} in 48–72 hrs. Free.`);
     else setPinMsg("Enter a valid 6-digit pincode.");
   };
-  const msg = `Hi FlexiFurni! I want this: ${p.name} (${mode.toUpperCase()} @ ₹${price.toLocaleString("en-IN")}${mode==="rent"?"/mo "+tenure:""})%0AColour: ${color.name}%0ASize: ${dims.L}x${dims.W}x${dims.H} cm%0AProduct: ${window.location.href}`;
   return <div className="container section">
     <Link to={mode==="rent"?"/rent":"/buy"}>← Back</Link>
     <div className="detail" style={{marginTop:12}}>
       <div className="gallery">
-        <div className="main"><img src={p.gallery[img]} alt={p.name} style={{filter:mode==="buy"?`hue-rotate(${FABRICS.indexOf(color)*8}deg)`:"none"}} /></div>
+        <div className="main"><img src={p.gallery[img]} alt={p.name} /></div>
         <div className="thumbs">{p.gallery.map((g,i)=><img key={i} src={g} className={i===img?"on":""} onClick={()=>setImg(i)} alt="" />)}</div>
-        <div style={{padding:"0 14px 14px",fontSize:13,color:"#667085"}}>Preview tint changes with fabric (indicative). For exact shade, order a free swatch on WhatsApp.</div>
+        <div style={{padding:"0 14px 14px",fontSize:13,color:"#667085"}}>For exact shade and size, talk to us on WhatsApp — free swatch and measurement.</div>
       </div>
       <div className="panel">
         <div style={{display:"flex",gap:8,fontSize:11,fontWeight:800,letterSpacing:"1.5px",color:"var(--navy)"}}><span>RENT</span><span style={{color:"#C9CFD9"}}>|</span><span>BUY</span><span style={{color:"#C9CFD9"}}>|</span><span>50% BUYBACK</span></div>
         <h1 className="serif" style={{margin:"10px 0 4px",color:"var(--navy)",fontSize:34}}>{p.name}</h1>
         <div style={{color:"#667085",fontSize:14}}>★ {p.rating} • {p.reviews} reviews • {p.category.replace("-"," ")}</div>
         <div className="tenure" style={{marginTop:12}}><button className={mode==="rent"?"on":""} onClick={()=>setMode("rent")}>Rent</button><button className={mode==="buy"?"on":""} onClick={()=>setMode("buy")}>Buy</button></div>
-        {mode==="rent"&&<div className="tenure" style={{marginTop:8}}>{["3 mo","6 mo","12 mo","24 mo"].map(x=><button key={x} className={tenure===x?"on":""} onClick={()=>setTenure(x)}>{x}</button>)}</div>}
+        {!DEMO_HIDE_INTERACTIVE && mode==="rent"&&<div className="tenure" style={{marginTop:8}}>{["3 mo","6 mo","12 mo","24 mo"].map(x=><button key={x} className={tenure===x?"on":""} onClick={()=>setTenure(x)}>{x}</button>)}</div>}
         <div className="price" style={{marginTop:10}}><b style={{fontSize:30}}>{mode==="rent"?`₹${price.toLocaleString("en-IN")}/mo`:`₹${price.toLocaleString("en-IN")}`}</b>{mode==="buy"&&p.mrp&&<s>₹{p.mrp.toLocaleString("en-IN")}</s>}</div>
         <p style={{color:"#4b587c"}}>{p.desc}</p>
+        {!DEMO_HIDE_INTERACTIVE && <>
         <b>Fabric / colour</b>
         <div className="swatches">{FABRICS.map(f=><button key={f.name} title={f.name} className={"sw"+(color.name===f.name?" on":"")} style={{background:f.hex}} onClick={()=>setColor(f)} />)}</div>
         <div style={{fontSize:13}}>Selected: <b>{color.name}</b></div>
         <div className="dimrow">{["L","W","H"].map(k=><div key={k}><label>{k==="L"?"Length":k==="W"?"Width":"Height"} (cm)</label><input type="number" value={dims[k]} onChange={e=>setDims({...dims,[k]:+e.target.value})} /></div>)}</div>
+        </>}
         <div className="kv"><span>Free delivery in Pune</span><span>Free installation</span><span>Easy swap / return</span><span>50% buyback on purchase*</span></div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
           {!DEMO_HIDE_COMMERCE && <button className="btn btn-orange" onClick={()=>addCart(p,mode,1,{color:color.name,...dims,addon:addon.name})}>{mode==="rent"?"Rent now":"Add to cart"}</button>}
-          <a className="btn btn-wa" target="_blank" rel="noreferrer" href={waLink(WHATSAPP_MAIN,`Hi FlexiFurni! I want this: ${p.name} (${mode.toUpperCase()} @ Rs.${price}/ ${mode==="rent"?"per month "+tenure:""}) Colour: ${color.name} Size: ${dims.L}x${dims.W}x${dims.H} cm Add-on: ${addon.name}`)}>WhatsApp Order</a>
+          <a className="btn btn-wa" target="_blank" rel="noreferrer" href={waLink(WHATSAPP_MAIN,`Hi FlexiFurni! I want this: ${p.name} (${mode.toUpperCase()} @ Rs.${price}/ ${mode==="rent"?"per month "+tenure:""})`)}>WhatsApp Order</a>
         </div>
-        <div className="note" style={{marginTop:12}}>Customize further? <Link to={`/customize?product=${p.id}`}>Open full customizer →</Link></div>
+        {!DEMO_HIDE_INTERACTIVE && <div className="note" style={{marginTop:12}}>Customize further? <Link to={`/customize?product=${p.id}`}>Open full customizer →</Link></div>}
 
-        <div style={{marginTop:18}}>
+        {!DEMO_HIDE_INTERACTIVE && <div style={{marginTop:18}}>
           <b style={{fontSize:13,letterSpacing:"1.5px",color:"var(--muted)"}}>ADD-ONS</b>
           <div className="tenure" style={{marginTop:8}}>{ADDONS.map(a=><button key={a.name} className={addon.name===a.name?"on":""} onClick={()=>setAddon(a)}>{a.name}{a.add>0?` +₹${a.add.toLocaleString("en-IN")}`:""}</button>)}</div>
-        </div>
+        </div>}
 
         <div className="panel" style={{marginTop:16,background:"var(--orange-soft)",borderColor:"#F3D9B8"}}>
           <b style={{fontSize:14}}>Offer: {OFFER.title}</b>
